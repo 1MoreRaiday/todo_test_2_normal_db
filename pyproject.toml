@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "todo-test-2-normal-db"
+version = "0.1.0"
+description = ""
+authors = ["goodgay897 <119532864+goodgay897@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "todo_test_2_normal_db"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.3"}
+aiosqlite = "^0.18.0"
+uvicorn = "^0.20.0"
+fastapi = "^0.91.0"
+pydantic = "^1.10.4"
+
+
+[tool.poetry.group.dev.dependencies]
+autopep8 = "^2.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
