@@ -46,6 +46,8 @@ async def update(req: UpdateRequest, session: AsyncSession = Depends(get_session
         task.title = req.title
     if req.isDone is not None:
         task.isDone = req.isDone
+    print(req)
+    print(task.title, task.isDone)
     await session.commit()
     return task
 
@@ -60,5 +62,5 @@ async def delete(req: DeleteRequest, session: AsyncSession = Depends(get_session
     task = task.scalars().first()
     if task is None:
         raise HTTPException(status_code=404, detail='not found')
-    session.delete(task)
+    await session.delete(task)
     await session.commit()
